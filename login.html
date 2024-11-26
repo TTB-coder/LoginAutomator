@@ -1,0 +1,56 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>Login Form</title>  
+    <script>  
+        function validateLogin(event) {  
+            // Prevent the form from submitting  
+            event.preventDefault();  
+
+            // Get input values  
+            var username = document.getElementById("username").value;  
+            var password = document.getElementById("password").value;  
+
+            // Sample credentials for validation  
+            var validUsername = "admin";  // Change to your desired username  
+            var validPassword = "password"; // Change to your desired password  
+
+            // Check if credentials match  
+            if (username === validUsername && password === validPassword) {  
+                document.getElementById("result").innerText = "Login successful!";  
+                document.getElementById("result").style.color = "green"; // Style for success  
+            } else {  
+                document.getElementById("result").innerText = "Failed login";  
+                document.getElementById("result").style.color = "red"; // Style for failure  
+            }  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Login</h1>  
+    <form id="loginForm" onsubmit="validateLogin(event)">  
+        <label for="username">Username:</label>  
+        <input type="text" id="username" name="username" required><br>  
+        
+        <label for="password">Password:</label>  
+        <input type="password" id="password" name="password" required><br>  
+        
+        <label>Remember me:</label>  
+        <input type="radio" id="rememberYes" name="remember" value="yes">  
+        <label for="rememberYes">Yes</label>  
+        <input type="radio" id="rememberNo" name="remember" value="no">  
+        <label for="rememberNo">No</label><br>  
+        
+        <label for="country">Select Country:</label>  
+        <select id="country" name="country">  
+            <option id="countryUS" value="US">United States</option>  
+            <option id="countryIN" value="IN">India</option>  
+            <!-- Other country options can go here -->  
+        </select><br><br>  
+        
+        <button type="submit" id="submitBtn">Login</button>  <!-- ID for submit button -->  
+    </form>  
+    
+    <div id="result" style="font-weight: bold;"></div>  
+</body>  
+</html>
